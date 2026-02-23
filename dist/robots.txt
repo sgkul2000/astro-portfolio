@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shreeshkulkarni.dev/sitemap.xml

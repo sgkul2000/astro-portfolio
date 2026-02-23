@@ -3,9 +3,49 @@ import Layout from '../layouts/Layout.astro';
 import data from '../../portfolio-data.json';
 
 const { personal, experience, projects, links } = data;
+
+const siteURL = 'https://shreeshkulkarni.dev';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: personal.name,
+  url: siteURL,
+  email: `mailto:${links.email}`,
+  jobTitle: 'Software Engineer',
+  description: personal.bio,
+  knowsAbout: [
+    'Supply Chain Technology',
+    'Cloud-native Microservices',
+    'Kubernetes',
+    'Golang',
+    'Next.js',
+    'Artificial Intelligence',
+    'Warehouse Management Systems',
+  ],
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Northeastern University',
+  },
+  sameAs: [links.linkedin, links.github],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  url: siteURL,
+  name: personal.name,
+  description: personal.bio,
+  author: { '@type': 'Person', name: personal.name },
+};
 ---
 
 <Layout title={`${personal.name} — ${personal.title}`} description={personal.bio}>
+  <!-- ─── JSON-LD Structured Data ──────────────────────────── -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  </Fragment>
   <!-- ─── Navigation ──────────────────────────────────────────── -->
   <header class="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-md bg-background/80">
     <nav class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">

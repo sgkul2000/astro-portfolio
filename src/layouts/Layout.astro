@@ -4,31 +4,78 @@ import '../styles/global.css';
 export interface Props {
   title?: string;
   description?: string;
+  canonicalURL?: string;
+  ogImage?: string;
+  ogType?: string;
+  keywords?: string;
 }
 
 const {
   title = 'Shreesh Kulkarni — Software Engineer',
-  description = 'Specializing in the intersection of Supply Chain Tech and AI.',
+  description =
+    'Shreesh Kulkarni is a Software Engineer specializing in Supply Chain Tech and AI. MSCS at Northeastern University (4.0 GPA). Available for full-time roles.',
+  ogImage = '/og.svg',
+  ogType = 'website',
+  keywords = 'Shreesh Kulkarni, Software Engineer, Supply Chain Tech, AI, Kubernetes, Microservices, Golang, Next.js, D3.js, Northeastern University, MSCS, Cloud-native, WMS, Blue Yonder',
 } = Astro.props;
+
+const siteURL = 'https://shreeshkulkarni.dev';
+const canonicalURL = Astro.props.canonicalURL ?? new URL(Astro.url.pathname, siteURL).href;
+const ogImageURL = new URL(ogImage, siteURL).href;
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
+    <!-- ─── Essentials ─────────────────────────────────────── -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Shreesh Kulkarni" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="color-scheme" content="dark" />
     <title>{title}</title>
 
-    <!-- Space Grotesk via Fontshare -->
+    <!-- ─── Canonical ─────────────────────────────────────── -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- ─── Open Graph ────────────────────────────────────── -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Shreesh Kulkarni — Software Engineer" />
+    <meta property="og:site_name" content="Shreesh Kulkarni" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ─── Twitter / X Card ──────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@shreeshkulkarni" />
+    <meta name="twitter:creator" content="@shreeshkulkarni" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content="Shreesh Kulkarni — Software Engineer" />
+
+    <!-- ─── Fonts ─────────────────────────────────────────── -->
     <link rel="preconnect" href="https://api.fontshare.com" />
     <link
       href="https://api.fontshare.com/v2/css?f[]=space-grotesk@700,600,500,400&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Favicon -->
+    <!-- ─── Favicons ──────────────────────────────────────── -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ─── Additional head injections (JSON-LD etc.) ────── -->
+    <slot name="head" />
   </head>
   <body class="bg-background text-white font-sans antialiased overflow-x-hidden">
     <slot />

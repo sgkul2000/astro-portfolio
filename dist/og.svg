@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#050505"/>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Left accent bar -->
+  <rect x="80" y="120" width="4" height="180" fill="#00FF41"/>
+
+  <!-- Name -->
+  <text x="108" y="195" font-family="monospace, sans-serif" font-size="72" font-weight="800" fill="#ffffff" letter-spacing="-2">Shreesh</text>
+  <text x="108" y="278" font-family="monospace, sans-serif" font-size="72" font-weight="800" fill="#00FF41" letter-spacing="-2">Kulkarni</text>
+
+  <!-- Title -->
+  <text x="110" y="336" font-family="monospace, sans-serif" font-size="26" font-weight="500" fill="#888888">Software Engineer · Supply Chain &amp; AI</text>
+
+  <!-- Divider -->
+  <line x1="80" y1="375" x2="560" y2="375" stroke="#1E1E1E" stroke-width="1"/>
+
+  <!-- Tags -->
+  <rect x="80" y="395" width="158" height="36" rx="6" fill="#121212" stroke="#1E1E1E" stroke-width="1"/>
+  <text x="159" y="419" font-family="monospace, sans-serif" font-size="14" fill="#3B82F6" text-anchor="middle">Kubernetes</text>
+
+  <rect x="248" y="395" width="148" height="36" rx="6" fill="#121212" stroke="#1E1E1E" stroke-width="1"/>
+  <text x="322" y="419" font-family="monospace, sans-serif" font-size="14" fill="#3B82F6" text-anchor="middle">Microservices</text>
+
+  <rect x="406" y="395" width="130" height="36" rx="6" fill="#121212" stroke="#1E1E1E" stroke-width="1"/>
+  <text x="471" y="419" font-family="monospace, sans-serif" font-size="14" fill="#3B82F6" text-anchor="middle">Golang · Go</text>
+
+  <rect x="546" y="395" width="98" height="36" rx="6" fill="#121212" stroke="#1E1E1E" stroke-width="1"/>
+  <text x="595" y="419" font-family="monospace, sans-serif" font-size="14" fill="#3B82F6" text-anchor="middle">Next.js</text>
+
+  <!-- NEU badge -->
+  <text x="80" y="498" font-family="monospace, sans-serif" font-size="16" fill="#555555">MSCS · Northeastern University · 4.0 GPA</text>
+
+  <!-- Green glow circle decorative -->
+  <circle cx="1060" cy="315" r="180" fill="none" stroke="#00FF41" stroke-width="1" opacity="0.08"/>
+  <circle cx="1060" cy="315" r="130" fill="none" stroke="#00FF41" stroke-width="1" opacity="0.12"/>
+  <circle cx="1060" cy="315" r="80" fill="none" stroke="#00FF41" stroke-width="1" opacity="0.18"/>
+  <text x="1060" y="300" font-family="monospace, sans-serif" font-size="52" font-weight="800" fill="#00FF41" text-anchor="middle" opacity="0.9">SK</text>
+  <text x="1060" y="345" font-family="monospace, sans-serif" font-size="13" fill="#555555" text-anchor="middle">shreeshkulkarni.dev</text>
+
+  <!-- Bottom border accent -->
+  <rect x="0" y="624" width="1200" height="6" fill="#00FF41" opacity="0.6"/>
+</svg>
