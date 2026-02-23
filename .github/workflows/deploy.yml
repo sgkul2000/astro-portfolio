@@ -3,31 +3,35 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Essential permissions for deploying to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout your repository
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+      - name: Install, build, and upload your site
+        uses: withastro/action@v3
+        # with:
+          # node-version: 20 # Optional: specific version if needed
+          # package-manager: npm # Optional: auto-detected by default
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build site
-        run: npm run build
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          # keep a history of the gh-pages branch
-          keep_files: false
-          # if deploying to a custom domain, uncomment:
-          # cname: 'shreesh.me'
+        id: deployment
+        uses: actions/deploy-pages@v4
