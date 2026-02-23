@@ -1,17 +1,254 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import data from '../../portfolio-data.json';
 
+const { personal, experience, projects, links } = data;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title={`${personal.name} — ${personal.title}`} description={personal.bio}>
+  <!-- ─── Navigation ──────────────────────────────────────────── -->
+  <header class="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-md bg-background/80">
+    <nav class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+      <span class="font-bold text-terminal-green tracking-tight text-sm uppercase letter-spacing-widest">
+        SK<span class="text-white">.</span>
+      </span>
+      <ul class="flex items-center gap-6 text-sm text-white/60">
+        <li>
+          <a href="#experience" class="hover:text-terminal-green transition-colors duration-200 hover:glow-green">
+            Experience
+          </a>
+        </li>
+        <li>
+          <a href="#projects" class="hover:text-terminal-green transition-colors duration-200">
+            Projects
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="hover:text-terminal-green transition-colors duration-200">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 overflow-x-hidden">
+
+    <!-- ─── Hero ─────────────────────────────────────────────── -->
+    <section class="min-h-screen flex flex-col justify-center pt-20 pb-16">
+      <div class="space-y-6">
+        <!-- Status indicator -->
+        <div class="flex items-center gap-2 text-xs text-white/40 uppercase tracking-widest">
+          <span class="w-2 h-2 rounded-full bg-terminal-green animate-pulse inline-block"></span>
+          Available for opportunities
+        </div>
+
+        <!-- Name -->
+        <h1 class="text-5xl sm:text-7xl font-extrabold leading-none tracking-tight">
+          {personal.name.split(' ')[0]}<br />
+          <span class="text-terminal-green text-glow-green">
+            {personal.name.split(' ')[1]}
+          </span>
+        </h1>
+
+        <!-- Title & Subtitle -->
+        <div class="space-y-1">
+          <p class="text-xl sm:text-2xl font-semibold text-white/90">
+            {personal.title}
+          </p>
+          <p class="text-sm text-electric-blue font-medium">
+            {personal.subtitle}
+          </p>
+        </div>
+
+        <!-- Bio -->
+        <p class="max-w-lg text-white/60 text-base leading-relaxed border-l-2 border-terminal-green pl-4">
+          {personal.bio}
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a
+            href={`mailto:${links.email}`}
+            class="px-5 py-2.5 bg-terminal-green text-background text-sm font-bold rounded transition-all duration-200 hover:shadow-green-glow hover:brightness-110 active:scale-95"
+          >
+            Get in Touch
+          </a>
+          <a
+            href={links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2.5 border border-white/20 text-white text-sm font-semibold rounded transition-all duration-200 hover:border-electric-blue hover:text-electric-blue hover:shadow-blue-glow active:scale-95"
+          >
+            GitHub
+          </a>
+          <a
+            href={links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2.5 border border-white/20 text-white text-sm font-semibold rounded transition-all duration-200 hover:border-electric-blue hover:text-electric-blue hover:shadow-blue-glow active:scale-95"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/20 text-xs tracking-widest uppercase animate-bounce hidden md:block">
+        scroll
+      </div>
+    </section>
+
+    <!-- ─── Divider ───────────────────────────────────────────── -->
+    <hr class="border-border" />
+
+    <!-- ─── Experience ───────────────────────────────────────── -->
+    <section id="experience" class="py-20">
+      <div class="flex items-center gap-4 mb-10">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-terminal-green">
+          Experience
+        </h2>
+        <div class="flex-1 h-px bg-border"></div>
+      </div>
+
+      <div class="space-y-4">
+        {experience.map((job) => (
+          <article class="card-base group cursor-default">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-white group-hover:text-terminal-green transition-colors duration-200">
+                  {job.role}
+                </h3>
+                <p class="text-electric-blue text-sm font-medium mt-0.5">
+                  {job.company}
+                </p>
+              </div>
+              <span class="text-xs text-white/30 border border-border rounded px-2 py-1 h-fit whitespace-nowrap font-mono">
+                {job.period}
+              </span>
+            </div>
+            <ul class="space-y-2">
+              {job.highlights.map((point) => (
+                <li class="flex gap-3 text-sm text-white/60 leading-relaxed">
+                  <span class="text-terminal-green mt-1 shrink-0">›</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- ─── Divider ───────────────────────────────────────────── -->
+    <hr class="border-border" />
+
+    <!-- ─── Projects ─────────────────────────────────────────── -->
+    <section id="projects" class="py-20">
+      <div class="flex items-center gap-4 mb-10">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-terminal-green">
+          Projects
+        </h2>
+        <div class="flex-1 h-px bg-border"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {projects.map((project) => (
+          <article class="card-base group flex flex-col gap-3">
+            <div class="flex items-start justify-between">
+              <h3 class="text-base font-bold text-white group-hover:text-terminal-green transition-colors duration-200 leading-tight">
+                {project.name}
+              </h3>
+              <svg class="w-4 h-4 text-white/20 group-hover:text-terminal-green transition-colors duration-200 shrink-0 ml-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </div>
+            <p class="text-white/50 text-sm leading-relaxed flex-1">
+              {project.description}
+            </p>
+            <span class="text-xs font-mono text-electric-blue bg-electric-blue/10 border border-electric-blue/20 rounded px-2 py-1 w-fit">
+              {project.tech}
+            </span>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- ─── Divider ───────────────────────────────────────────── -->
+    <hr class="border-border" />
+
+    <!-- ─── Contact ──────────────────────────────────────────── -->
+    <section id="contact" class="py-20 text-center">
+      <div class="flex items-center gap-4 mb-10 max-w-sm mx-auto">
+        <div class="flex-1 h-px bg-border"></div>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-terminal-green whitespace-nowrap">
+          Let's Build
+        </h2>
+        <div class="flex-1 h-px bg-border"></div>
+      </div>
+
+      <p class="text-white/50 text-base max-w-sm mx-auto mb-8 leading-relaxed">
+        Open to full-time roles at the intersection of AI and systems engineering.
+      </p>
+
+      <a
+        href={`mailto:${links.email}`}
+        class="inline-flex items-center gap-2 px-6 py-3 bg-terminal-green text-background text-sm font-bold rounded transition-all duration-200 hover:shadow-green-glow hover:brightness-110 active:scale-95"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        {links.email}
+      </a>
+
+      <div class="flex justify-center gap-6 mt-8">
+        <a
+          href={links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-white/30 text-sm hover:text-terminal-green transition-colors duration-200 font-medium"
+          style="filter: none;"
+          onmouseenter="this.style.filter='drop-shadow(0 0 8px #00FF41)'"
+          onmouseleave="this.style.filter='none'"
+        >
+          GitHub ↗
+        </a>
+        <a
+          href={links.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-white/30 text-sm hover:text-electric-blue transition-colors duration-200 font-medium"
+          style="filter: none;"
+          onmouseenter="this.style.filter='drop-shadow(0 0 8px #3B82F6)'"
+          onmouseleave="this.style.filter='none'"
+        >
+          LinkedIn ↗
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── Footer ───────────────────────────────────────────────── -->
+  <footer class="border-t border-border py-6">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/20">
+      <span class="font-mono">
+        // {personal.name} &mdash; {new Date().getFullYear()}
+      </span>
+      <span class="font-mono text-terminal-green/40">
+        built with astro + tailwindcss
+      </span>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* Scoped glow for nav links */
+  nav a {
+    position: relative;
+  }
+
+  .text-glow-green {
+    text-shadow: 0 0 12px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.3);
+  }
+</style>

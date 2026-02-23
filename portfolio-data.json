@@ -1,0 +1,49 @@
+{
+  "personal": {
+    "name": "Shreesh Kulkarni",
+    "title": "Software Engineer | Supply Chain Specialist",
+    "subtitle": "MSCS @ Northeastern University | 4.0 GPA",
+    "bio": "Specializing in the intersection of Supply Chain Tech and AI. I build high-availability systems that bridge the gap between complex algorithms and physical operations."
+  },
+  "colors": {
+    "background": "#050505",
+    "card": "#121212",
+    "accent": "#00FF41",
+    "secondary": "#3B82F6",
+    "text": "#FFFFFF"
+  },
+  "experience": [
+    {
+      "company": "Lowe's Companies",
+      "role": "Software Engineer (L2)",
+      "period": "2 Years",
+      "highlights": [
+        "Migrated legacy Blue Yonder WMS to cloud-native microservices.",
+        "Engineered trailer scheduling logic reducing RDC demurrage costs.",
+        "Deployed 99.9% uptime services via Kubernetes, Rancher, and Grafana."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "MIT Brain Music Analyzer",
+      "tech": "Next.js + OpenAI",
+      "description": "Correlating neural patterns with music characteristics via LLM integration."
+    },
+    {
+      "name": "Shizen Visualization",
+      "tech": "D3.js",
+      "description": "Interactive dual-axis climate anomaly reporting and data synthesis."
+    },
+    {
+      "name": "HPE Golang SDK",
+      "tech": "Go + REST",
+      "description": "Building infrastructure-as-code tools for remote hardware management."
+    }
+  ],
+  "links": {
+    "linkedin": "https://linkedin.com/in/kulkarnishreesh",
+    "github": "https://github.com/sgkul2000",
+    "email": "kulkarni.shreesh12@gmail.com"
+  }
+}

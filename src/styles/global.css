@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #00FF41;
+    color: #050505;
+  }
+}
+
+@layer utilities {
+  .glow-green {
+    filter: drop-shadow(0 0 8px #00FF41);
+  }
+
+  .glow-blue {
+    filter: drop-shadow(0 0 8px #3B82F6);
+  }
+
+  .text-glow-green {
+    text-shadow: 0 0 12px rgba(0, 255, 65, 0.8), 0 0 24px rgba(0, 255, 65, 0.4);
+  }
+}
+
+@layer components {
+  .card-base {
+    background-color: #121212;
+    border: 1px solid #1E1E1E;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .card-base:hover {
+    border-color: #00FF41;
+    box-shadow: 0 0 0 1px #00FF41, 0 0 20px rgba(0, 255, 65, 0.15);
+  }
+}
