@@ -4,6 +4,9 @@ import data from '../../portfolio-data.json';
 
 const { personal, experience, projects, links } = data;
 
+const featuredProjects = projects.filter(p => p.featured);
+const otherProjects = projects.filter(p => !p.featured);
+
 const siteURL = 'https://shreeshkulkarni.dev';
 
 const personSchema = {
@@ -43,8 +46,8 @@ const websiteSchema = {
 <Layout title={`${personal.name} — ${personal.title}`} description={personal.bio}>
   <!-- ─── JSON-LD Structured Data ──────────────────────────── -->
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   </Fragment>
   <!-- ─── Navigation ──────────────────────────────────────────── -->
   <header class="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-md bg-background/80">
@@ -77,19 +80,35 @@ const websiteSchema = {
     <!-- ─── Hero ─────────────────────────────────────────────── -->
     <section class="min-h-screen flex flex-col justify-center pt-20 pb-16">
       <div class="space-y-6">
-        <!-- Status indicator -->
-        <div class="flex items-center gap-2 text-xs text-white/40 uppercase tracking-widest">
-          <span class="w-2 h-2 rounded-full bg-terminal-green animate-pulse inline-block"></span>
-          Available for opportunities
+        <!-- Name & Image -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div class="flex flex-col gap-4 order-2 md:order-1">
+            <!-- Status indicator -->
+            <div class="flex items-center gap-2 text-xs text-white/40 uppercase tracking-widest">
+              <span class="w-2 h-2 rounded-full bg-terminal-green animate-pulse inline-block"></span>
+              Available for opportunities
+            </div>
+            <h1 class="text-5xl sm:text-7xl font-extrabold leading-none tracking-tight">
+            {personal.name.split(' ')[0]}<br />
+            <span class="text-terminal-green text-glow-green">
+              {personal.name.split(' ')[1]}
+            </span>
+          </h1>
+          </div>
+          <div class="relative group order-1 md:order-2 p-4">
+            <div class="absolute inset-0 bg-terminal-green/8 rounded-2xl blur-2xl group-hover:bg-terminal-green/15 transition-all duration-500"></div>
+            <div class="relative">
+              <img 
+                src={personal.image} 
+                alt={personal.name}
+                class="w-32 h-32 md:w-56 md:h-56 rounded-xl object-cover border-2 border-terminal-green shadow-[0_0_30px_rgba(0,255,65,0.2)] group-hover:shadow-[0_0_50px_rgba(0,255,65,0.4)] transition-all duration-500"
+              />
+              <!-- Decorative corner accents -->
+              <div class="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-terminal-green"></div>
+              <div class="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-terminal-green"></div>
+            </div>
+          </div>
         </div>
-
-        <!-- Name -->
-        <h1 class="text-5xl sm:text-7xl font-extrabold leading-none tracking-tight">
-          {personal.name.split(' ')[0]}<br />
-          <span class="text-terminal-green text-glow-green">
-            {personal.name.split(' ')[1]}
-          </span>
-        </h1>
 
         <!-- Title & Subtitle -->
         <div class="space-y-1">
@@ -121,6 +140,14 @@ const websiteSchema = {
             class="px-5 py-2.5 border border-white/20 text-white text-sm font-semibold rounded transition-all duration-200 hover:border-electric-blue hover:text-electric-blue hover:shadow-blue-glow active:scale-95"
           >
             GitHub
+          </a>
+          <a
+            href={links.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2.5 border border-white/20 text-white text-sm font-semibold rounded transition-all duration-200 hover:border-terminal-green hover:text-terminal-green active:scale-95"
+          >
+            Resume
           </a>
           <a
             href={links.linkedin}
@@ -169,8 +196,8 @@ const websiteSchema = {
             </div>
             <ul class="space-y-2">
               {job.highlights.map((point) => (
-                <li class="flex gap-3 text-sm text-white/60 leading-relaxed">
-                  <span class="text-terminal-green mt-1 shrink-0">›</span>
+                <li class="flex items-baseline gap-3 text-sm text-white/60 leading-relaxed">
+                  <span class="text-terminal-green shrink-0">›</span>
                   <span>{point}</span>
                 </li>
               ))}
@@ -187,13 +214,62 @@ const websiteSchema = {
     <section id="projects" class="py-20">
       <div class="flex items-center gap-4 mb-10">
         <h2 class="text-xs font-bold uppercase tracking-widest text-terminal-green">
-          Projects
+          Featured Projects
+        </h2>
+        <div class="flex-1 h-px bg-border"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+        {featuredProjects.map((project) => (
+          <article class="card-base group flex flex-col gap-4 p-8 border-terminal-green/30 hover:border-terminal-green transition-all duration-300">
+            <div class="flex items-start justify-between">
+              <h3 class="text-2xl font-bold text-white group-hover:text-terminal-green transition-colors duration-200 leading-tight">
+                {project.name}
+              </h3>
+              <svg class="w-6 h-6 text-white/20 group-hover:text-terminal-green transition-colors duration-200 shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </div>
+            <p class="text-white/60 text-base leading-relaxed flex-1">
+              {project.description}
+            </p>
+            <div class="flex flex-wrap items-center justify-between gap-4 mt-auto">
+              <div class="flex flex-wrap gap-2">
+                {project.tech.split(' + ').map(t => (
+                  <span class="text-xs font-mono text-terminal-green bg-terminal-green/5 border border-terminal-green/20 rounded-full px-3 py-1">
+                    {t}
+                  </span>
+                ))}
+              </div>
+              
+              <div class="flex items-center gap-4">
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-terminal-green transition-colors duration-200 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider group/link">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    Code
+                  </a>
+                )}
+                {project.visit && (
+                  <a href={project.visit} target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-terminal-green transition-colors duration-200 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider group/link">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    Visit
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="flex items-center gap-4 mb-10">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-white/40">
+          Other Projects
         </h2>
         <div class="flex-1 h-px bg-border"></div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {projects.map((project) => (
+        {otherProjects.map((project) => (
           <article class="card-base group flex flex-col gap-3">
             <div class="flex items-start justify-between">
               <h3 class="text-base font-bold text-white group-hover:text-terminal-green transition-colors duration-200 leading-tight">
@@ -206,9 +282,23 @@ const websiteSchema = {
             <p class="text-white/50 text-sm leading-relaxed flex-1">
               {project.description}
             </p>
-            <span class="text-xs font-mono text-electric-blue bg-electric-blue/10 border border-electric-blue/20 rounded px-2 py-1 w-fit">
-              {project.tech}
-            </span>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="text-xs font-mono text-electric-blue bg-electric-blue/10 border border-electric-blue/20 rounded px-2 py-1 w-fit">
+                {project.tech}
+              </span>
+              <div class="flex items-center gap-3">
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-white/20 hover:text-terminal-green transition-colors duration-200 group/link" title="View Code">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  </a>
+                )}
+                {project.visit && (
+                  <a href={project.visit} target="_blank" rel="noopener noreferrer" class="text-white/20 hover:text-terminal-green transition-colors duration-200 group/link" title="Visit Site">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                  </a>
+                )}
+              </div>
+            </div>
           </article>
         ))}
       </div>

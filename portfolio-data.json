@@ -3,7 +3,8 @@
     "name": "Shreesh Kulkarni",
     "title": "Software Engineer | Supply Chain Specialist",
     "subtitle": "MSCS @ Northeastern University | 4.0 GPA",
-    "bio": "Specializing in the intersection of Supply Chain Tech and AI. I build high-availability systems that bridge the gap between complex algorithms and physical operations."
+    "bio": "Specializing in the intersection of Supply Chain Tech and AI. I build high-availability systems that bridge the gap between complex algorithms and physical operations.",
+    "image": "/images/image.png"
   },
   "colors": {
     "background": "#050505",
@@ -22,28 +23,64 @@
         "Engineered trailer scheduling logic reducing RDC demurrage costs.",
         "Deployed 99.9% uptime services via Kubernetes, Rancher, and Grafana."
       ]
+    },
+    {
+      "company": "Exinous Technologies",
+      "role": "Full Stack Developer",
+      "period": "2 Years",
+      "highlights": [
+        "Migrated infrastructure to AWS, cutting costs by 70% and improving reliability.",
+        "Automated manual workflows with Python scripts, minimizing task time and data errors.",
+        "Trained and mentored a cohort of interns through technical workshops and project-based assessments."
+      ]
     }
   ],
   "projects": [
     {
+      "name": "CodeTutor",
+      "tech": "React + FastAPI + Claude",
+      "description": "AI-powered coding practice platform with Socratic feedback, 4-level hint escalation, real-time SSE streaming, and a knowledge radar dashboard.",
+      "featured": true,
+      "github": "https://github.com/sgkul2000/CodeTutor",
+      "visit": ""
+    },
+    {
+      "name": "PopChoice",
+      "tech": "React + OpenAI + pgvector",
+      "description": "Group movie recommender that collects everyone's preferences and uses semantic vector search to find the one film that fits the whole room.",
+      "featured": true,
+      "github": "https://github.com/sgkul2000/PopChoice",
+      "visit": "https://popchoice.shreesh.me"
+    },
+    {
       "name": "MIT Brain Music Analyzer",
       "tech": "Next.js + OpenAI",
-      "description": "Correlating neural patterns with music characteristics via LLM integration."
+      "description": "Correlating neural patterns with music characteristics via LLM integration.",
+      "featured": true,
+      "github": "https://github.com/sgkul2000/mit-brain-music",
+      "visit": ""
     },
     {
       "name": "Shizen Visualization",
       "tech": "D3.js",
-      "description": "Interactive dual-axis climate anomaly reporting and data synthesis."
+      "description": "Interactive dual-axis climate anomaly reporting and data synthesis.",
+      "featured": false,
+      "github": "",
+      "visit": "https://shizen.shreesh.me"
     },
     {
       "name": "HPE Golang SDK",
       "tech": "Go + REST",
-      "description": "Building infrastructure-as-code tools for remote hardware management."
+      "description": "Building infrastructure-as-code tools for remote hardware management.",
+      "featured": false,
+      "github": "",
+      "visit": ""
     }
   ],
   "links": {
     "linkedin": "https://linkedin.com/in/kulkarnishreesh",
     "github": "https://github.com/sgkul2000",
-    "email": "kulkarni.shreesh12@gmail.com"
+    "email": "kulkarni.shreesh12@gmail.com",
+    "resume": "/shreesh_kulkarni_resume.pdf"
   }
 }
