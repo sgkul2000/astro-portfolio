@@ -1,0 +1,36 @@
+# Shreesh Kulkarni
+
+> Software Engineer and MSCS student at Northeastern University (4.0 GPA).
+> Specializes in full-stack AI systems — LangChain, RAG pipelines, Model Context Protocol, React, FastAPI.
+> Previously Software Engineer at Lowe's Services India. Available for full-time Software Engineer / AI Engineer roles.
+
+## About
+
+- Portfolio: https://shreeshkulkarni.dev/
+- GitHub: https://github.com/sgkul2000
+- LinkedIn: https://linkedin.com/in/kulkarnishreesh
+- Email: kulkarni.shreesh12@gmail.com
+- Resume: https://shreeshkulkarni.dev/shreesh_kulkarni_resume.pdf
+
+## Education
+
+- M.S. Computer Science — Northeastern University, Boston (4.0 GPA, expected 2026)
+- B.E. Computer Science — The National Institute of Engineering, Mysore
+
+## Experience
+
+- Software Engineer — Lowe's Services India Pvt. Ltd. (Jul 2023 – Jul 2025): inbound trailer optimization algorithm for Regional Distribution Centers, centralized orchestration platform reducing manual coordination by 20%, promoted and recognized with Spot and Individual Excellence Awards.
+- Full Stack Engineer — Exinous Technologies (Apr 2021 – Jul 2023): bootstrapped patient data collection app (Vue.js + Python Flask) scaling from 10 to thousands of patients, AWS migration cutting costs by 70%, mentored interns.
+
+## Certifications
+
+- The AI Engineer Path — Scrimba (Mar 2026)
+- MIT 6.S191: Introduction to Deep Learning — Massachusetts Institute of Technology (Jan 2026)
+
+## Featured Projects
+
+- AI Coding Tutor Agent: multi-agent LangChain tutoring platform with Socratic hint generation, Judge0 sandboxed code execution, adaptive difficulty scoring, and RAG pipeline. https://github.com/sgkul2000/CodeTutor
+- pg-schema-explorer-mcp: Model Context Protocol server exposing any PostgreSQL database as a Claude Desktop conversational interface — NL-to-SQL pipeline, BFS foreign-key traversal, index optimization advisor. https://github.com/sgkul2000/db-explorer-mcp
+- Shizen — AI Financial Assistant: multi-agent RAG financial assistant with LangChain + Pinecone, D3.js/Recharts visualizations, live financial data APIs. https://shizen.shreesh.me
+- CNN-Based Sudoku Solver: end-to-end PyTorch CNN trained on synthetic Sudoku datasets (MIT 6.S191 capstone).
+- SportsTV Germany Data Warehouse: Kimball star schema in MySQL, R ETL pipeline processing ~1M streaming transactions, BI reports in R Markdown.

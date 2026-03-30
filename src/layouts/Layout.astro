@@ -13,10 +13,10 @@ export interface Props {
 const {
   title = 'Shreesh Kulkarni — Software Engineer',
   description =
-    'Shreesh Kulkarni is a Software Engineer specializing in Supply Chain Tech and AI. MSCS at Northeastern University (4.0 GPA). Available for full-time roles.',
-  ogImage = '/og.svg',
+    'Shreesh Kulkarni — Software Engineer & AI builder. MSCS at Northeastern (4.0 GPA). LangChain, RAG, React, FastAPI. Open to full-time roles.',
+  ogImage = '/og.png',
   ogType = 'website',
-  keywords = 'Shreesh Kulkarni, Software Engineer, Supply Chain Tech, AI, Kubernetes, Microservices, Golang, Next.js, D3.js, Northeastern University, MSCS, Cloud-native, WMS, Blue Yonder',
+  keywords = 'Shreesh Kulkarni, Software Engineer, AI Engineer, Full-Stack Developer, Full-Stack Engineer, LangChain, RAG Pipelines, Model Context Protocol, React, Next.js, FastAPI, PostgreSQL, AWS, Cloud-native Microservices, Northeastern University, MSCS',
 } = Astro.props;
 
 const siteURL = 'https://shreeshkulkarni.dev';
@@ -38,8 +38,10 @@ const ogImageURL = new URL(ogImage, siteURL).href;
     <meta name="color-scheme" content="dark" />
     <title>{title}</title>
 
-    <!-- ─── Canonical ─────────────────────────────────────── -->
+    <!-- ─── Canonical & Hreflang ─────────────────────────── -->
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
 
     <!-- ─── Open Graph ────────────────────────────────────── -->
     <meta property="og:type" content={ogType} />
@@ -62,17 +64,19 @@ const ogImageURL = new URL(ogImage, siteURL).href;
     <meta name="twitter:image" content={ogImageURL} />
     <meta name="twitter:image:alt" content="Shreesh Kulkarni — Software Engineer" />
 
-    <!-- ─── Fonts ─────────────────────────────────────────── -->
-    <link rel="preconnect" href="https://api.fontshare.com" />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=space-grotesk@700,600,500,400&display=swap"
-      rel="stylesheet"
-    />
-
     <!-- ─── Favicons ──────────────────────────────────────── -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ─── Analytics (Umami) ────────────────────────────── -->
+    <!-- Sign up at https://umami.is, create a website, then replace YOUR_WEBSITE_ID below -->
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="1bdb92ff-0c53-46d0-8fc6-34231e99241f"
+      is:inline
+    ></script>
 
     <!-- ─── Additional head injections (JSON-LD etc.) ────── -->
     <slot name="head" />

@@ -3,8 +3,10 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://shreeshkulkarni.dev/</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shreeshkulkarni.dev/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shreeshkulkarni.dev/" />
   </url>
 </urlset>

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://shreeshkulkarni.dev/sitemap.xml
+LLMs: https://shreeshkulkarni.dev/llms.txt

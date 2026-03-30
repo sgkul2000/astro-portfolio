@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import data from '../../portfolio-data.json';
 
-const { personal, experience, projects, certifications, links } = data;
+const { personal, experience, projects, certifications, links } = data as typeof data & { personal: { metaDescription: string } };
 
 const featuredProjects = projects.filter(p => p.featured);
 const otherProjects = projects.filter(p => !p.featured);
@@ -19,6 +19,8 @@ const personSchema = {
   description: personal.bio,
   knowsAbout: [
     'Artificial Intelligence',
+    'Software Engineering',
+    'Full-Stack Development',
     'LangChain',
     'RAG Pipelines',
     'Model Context Protocol',
@@ -46,7 +48,7 @@ const websiteSchema = {
 };
 ---
 
-<Layout title={`${personal.name} — ${personal.title}`} description={personal.bio}>
+<Layout title={`${personal.name} — ${personal.title}`} description={personal.metaDescription}>
   <!-- ─── JSON-LD Structured Data ──────────────────────────── -->
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
@@ -106,9 +108,14 @@ const websiteSchema = {
           <div class="relative group order-1 md:order-2 p-4">
             <div class="absolute inset-0 bg-terminal-green/8 rounded-2xl blur-2xl group-hover:bg-terminal-green/15 transition-all duration-500"></div>
             <div class="relative">
-              <img 
-                src={personal.image} 
+              <img
+                src={personal.image}
                 alt={personal.name}
+                width="224"
+                height="224"
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
                 class="w-32 h-32 md:w-56 md:h-56 rounded-xl object-cover border-2 border-terminal-green shadow-[0_0_30px_rgba(0,255,65,0.2)] group-hover:shadow-[0_0_50px_rgba(0,255,65,0.4)] transition-all duration-500"
               />
               <!-- Decorative corner accents -->
@@ -120,9 +127,9 @@ const websiteSchema = {
 
         <!-- Title & Subtitle -->
         <div class="space-y-1">
-          <p class="text-xl sm:text-2xl font-semibold text-white/90">
+          <h2 class="text-xl sm:text-2xl font-semibold text-white/90">
             {personal.title}
-          </p>
+          </h2>
           <p class="text-sm text-electric-blue font-medium">
             {personal.subtitle}
           </p>
@@ -391,10 +398,7 @@ const websiteSchema = {
           href={links.github}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-white/30 text-sm hover:text-terminal-green transition-colors duration-200 font-medium"
-          style="filter: none;"
-          onmouseenter="this.style.filter='drop-shadow(0 0 8px #00FF41)'"
-          onmouseleave="this.style.filter='none'"
+          class="text-white/30 text-sm hover:text-terminal-green hover:glow-green transition-colors duration-200 font-medium"
         >
           GitHub ↗
         </a>
@@ -402,10 +406,7 @@ const websiteSchema = {
           href={links.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-white/30 text-sm hover:text-electric-blue transition-colors duration-200 font-medium"
-          style="filter: none;"
-          onmouseenter="this.style.filter='drop-shadow(0 0 8px #3B82F6)'"
-          onmouseleave="this.style.filter='none'"
+          class="text-white/30 text-sm hover:text-electric-blue hover:glow-blue transition-colors duration-200 font-medium"
         >
           LinkedIn ↗
         </a>
