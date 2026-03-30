@@ -1,9 +1,9 @@
 {
   "personal": {
     "name": "Shreesh Kulkarni",
-    "title": "Software Engineer | Supply Chain Specialist",
+    "title": "Software Engineer | AI & Full-Stack",
     "subtitle": "MSCS @ Northeastern University | 4.0 GPA",
-    "bio": "Specializing in the intersection of Supply Chain Tech and AI. I build high-availability systems that bridge the gap between complex algorithms and physical operations.",
+    "bio": "Currently pursuing a Master's in Computer Science at Northeastern University. Recently worked as a Software Engineer at Lowe's India. Prior experience includes full-stack development at Exinous Technologies. Recipient of the Richard E. Merwin Student Scholarship.",
     "image": "/images/image.png"
   },
   "colors": {
@@ -15,66 +15,98 @@
   },
   "experience": [
     {
-      "company": "Lowe's Companies",
-      "role": "Software Engineer (L2)",
-      "period": "2 Years",
+      "company": "Lowe's Services India Pvt. Ltd.",
+      "role": "Software Engineer",
+      "period": "Jul 2023 – Jul 2025",
       "highlights": [
-        "Migrated legacy Blue Yonder WMS to cloud-native microservices.",
-        "Engineered trailer scheduling logic reducing RDC demurrage costs.",
-        "Deployed 99.9% uptime services via Kubernetes, Rancher, and Grafana."
+        "Architected an inbound trailer optimization algorithm to streamline logistics for Regional Distribution Centers, reducing demurrage and detention costs by thousands of dollars each day.",
+        "Automated end-to-end manual planning workflows via a centralized orchestration platform, reducing manual coordination required by staff by 20% to manage high-volume trailer arrivals.",
+        "Promoted from Associate Software Engineer to Software Engineer; recognized with Spot and Individual Excellence Awards for delivering high-quality, scalable solutions."
       ]
     },
     {
       "company": "Exinous Technologies",
-      "role": "Full Stack Developer",
-      "period": "2 Years",
+      "role": "Full Stack Engineer",
+      "period": "Apr 2021 – Jul 2023",
       "highlights": [
-        "Migrated infrastructure to AWS, cutting costs by 70% and improving reliability.",
-        "Automated manual workflows with Python scripts, minimizing task time and data errors.",
-        "Trained and mentored a cohort of interns through technical workshops and project-based assessments."
+        "Bootstrapped the core patient data collection application using Vue.js and Python Flask, scaling from 10 to thousands of patients.",
+        "Migrated infrastructure to the cloud using AWS, cutting infrastructure costs by 70% and improving reliability.",
+        "Trained and mentored a cohort of interns, guiding them through technical workshops and project-based assessments."
       ]
     }
   ],
   "projects": [
     {
-      "name": "CodeTutor",
-      "tech": "React + FastAPI + Claude",
-      "description": "AI-powered coding practice platform with Socratic feedback, 4-level hint escalation, real-time SSE streaming, and a knowledge radar dashboard.",
+      "name": "AI Coding Tutor Agent",
+      "tech": "FastAPI + React + LangChain + Claude",
+      "description": "Full-stack AI tutoring platform with a multi-agent LangChain architecture — dedicated agents for Socratic hint generation, sandboxed code execution via Judge0, and adaptive difficulty scoring. Features a RAG pipeline with embeddings for personalized tutoring based on user history.",
       "featured": true,
       "github": "https://github.com/sgkul2000/CodeTutor",
       "visit": ""
     },
     {
-      "name": "PopChoice",
-      "tech": "React + OpenAI + pgvector",
-      "description": "Group movie recommender that collects everyone's preferences and uses semantic vector search to find the one film that fits the whole room.",
+      "name": "pg-schema-explorer-mcp",
+      "tech": "Node.js + PostgreSQL + MCP + Claude",
+      "description": "Model Context Protocol server exposing any PostgreSQL database as a conversational interface for Claude Desktop. Implements an NL-to-SQL pipeline with dual-model Anthropic API strategy, multi-layered read-only safety architecture, BFS-based foreign-key relationship traversal, and an index optimization advisor.",
       "featured": true,
-      "github": "https://github.com/sgkul2000/PopChoice",
-      "visit": "https://popchoice.shreesh.me"
-    },
-    {
-      "name": "MIT Brain Music Analyzer",
-      "tech": "Next.js + OpenAI",
-      "description": "Correlating neural patterns with music characteristics via LLM integration.",
-      "featured": true,
-      "github": "https://github.com/sgkul2000/mit-brain-music",
+      "github": "https://github.com/sgkul2000/db-explorer-mcp",
       "visit": ""
     },
     {
-      "name": "Shizen Visualization",
-      "tech": "D3.js",
-      "description": "Interactive dual-axis climate anomaly reporting and data synthesis.",
-      "featured": false,
+      "name": "Shizen — AI Financial Assistant",
+      "tech": "Next.js + FastAPI + LangChain + Pinecone",
+      "description": "Multi-agent AI financial assistant with a RAG-powered backend using LangChain and Pinecone vector search. Features interactive dual-axis financial visualizations with D3.js and Recharts, and a FastAPI backend connected to live financial data APIs.",
+      "featured": true,
       "github": "",
       "visit": "https://shizen.shreesh.me"
     },
     {
-      "name": "HPE Golang SDK",
-      "tech": "Go + REST",
-      "description": "Building infrastructure-as-code tools for remote hardware management.",
+      "name": "CNN-Based Sudoku Solver",
+      "tech": "Python + PyTorch + CNNs",
+      "description": "Convolutional neural network trained on synthetically generated Sudoku puzzle datasets to predict solutions from incomplete grids. Built end-to-end ML pipeline applying deep learning concepts from MIT 6.S191.",
+      "featured": true,
+      "github": "",
+      "visit": ""
+    },
+    {
+      "name": "SportsTV Germany Data Warehouse",
+      "tech": "MySQL + R + ETL + Kimball Star Schema",
+      "description": "End-to-end data warehouse for a German sports streaming platform — Kimball star schema in MySQL, ETL pipeline in R processing ~1M streaming transactions, and BI reports in R Markdown for viewer engagement and subscription insights.",
       "featured": false,
       "github": "",
       "visit": ""
+    },
+    {
+      "name": "Multi-Agent Pacman",
+      "tech": "Python + Adversarial Search",
+      "description": "Implemented minimax, alpha-beta pruning, and expectimax for multi-agent decision-making. Reduced search space by 60% via alpha-beta pruning while maintaining optimal move selection in adversarial game trees.",
+      "featured": false,
+      "github": "",
+      "visit": ""
+    },
+    {
+      "name": "Golang iLO REST SDK",
+      "tech": "Go + REST + Redfish",
+      "description": "RESTful SDK in Golang to interface with HPE Integrated Lights Out (iLO) devices via the Redfish protocol. Implemented modules for power cycling, remote console access, and firmware updates with comprehensive API documentation.",
+      "featured": false,
+      "github": "",
+      "visit": ""
+    }
+  ],
+  "certifications": [
+    {
+      "name": "The AI Engineer Path",
+      "issuer": "Scrimba",
+      "date": "Mar 2026",
+      "description": "Comprehensive curriculum covering AI-powered application development, prompt engineering, LLM integration, and building production-ready AI tools.",
+      "url": ""
+    },
+    {
+      "name": "MIT 6.S191: Introduction to Deep Learning",
+      "issuer": "Massachusetts Institute of Technology",
+      "date": "Jan 2026",
+      "description": "Intensive coursework covering Computer Vision and NLP fundamentals taught by Alexander Amini.",
+      "url": ""
     }
   ],
   "links": {

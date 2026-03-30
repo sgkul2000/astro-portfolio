@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import data from '../../portfolio-data.json';
 
-const { personal, experience, projects, links } = data;
+const { personal, experience, projects, certifications, links } = data;
 
 const featuredProjects = projects.filter(p => p.featured);
 const otherProjects = projects.filter(p => !p.featured);
@@ -18,13 +18,16 @@ const personSchema = {
   jobTitle: 'Software Engineer',
   description: personal.bio,
   knowsAbout: [
-    'Supply Chain Technology',
-    'Cloud-native Microservices',
-    'Kubernetes',
-    'Golang',
-    'Next.js',
     'Artificial Intelligence',
-    'Warehouse Management Systems',
+    'LangChain',
+    'RAG Pipelines',
+    'Model Context Protocol',
+    'React',
+    'Next.js',
+    'FastAPI',
+    'PostgreSQL',
+    'Cloud-native Microservices',
+    'AWS',
   ],
   alumniOf: {
     '@type': 'CollegeOrUniversity',
@@ -59,6 +62,11 @@ const websiteSchema = {
         <li>
           <a href="#experience" class="hover:text-terminal-green transition-colors duration-200 hover:glow-green">
             Experience
+          </a>
+        </li>
+        <li>
+          <a href="#certifications" class="hover:text-terminal-green transition-colors duration-200">
+            Certifications
           </a>
         </li>
         <li>
@@ -202,6 +210,53 @@ const websiteSchema = {
                 </li>
               ))}
             </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- ─── Divider ───────────────────────────────────────────── -->
+    <hr class="border-border" />
+
+    <!-- ─── Certifications ───────────────────────────────────── -->
+    <section id="certifications" class="py-20">
+      <div class="flex items-center gap-4 mb-10">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-terminal-green">
+          Certifications
+        </h2>
+        <div class="flex-1 h-px bg-border"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {certifications.map((cert) => (
+          <article class="card-base group flex flex-col gap-3">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex flex-col gap-1">
+                <h3 class="text-base font-bold text-white group-hover:text-terminal-green transition-colors duration-200 leading-tight">
+                  {cert.name}
+                </h3>
+                <p class="text-electric-blue text-xs font-medium">{cert.issuer}</p>
+              </div>
+              <span class="text-xs text-white/30 border border-border rounded px-2 py-1 h-fit whitespace-nowrap font-mono shrink-0">
+                {cert.date}
+              </span>
+            </div>
+            <p class="text-white/50 text-sm leading-relaxed flex-1">
+              {cert.description}
+            </p>
+            {cert.url && (
+              <a
+                href={cert.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-xs font-bold uppercase tracking-wider text-white/30 hover:text-terminal-green transition-colors duration-200 flex items-center gap-1.5 w-fit mt-auto"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                View Credential
+              </a>
+            )}
           </article>
         ))}
       </div>
