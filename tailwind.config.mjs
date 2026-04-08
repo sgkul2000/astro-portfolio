@@ -9,18 +9,18 @@ export default {
       colors: {
         background: '#050505',
         card: '#121212',
-        'terminal-green': '#00FF41',
+        'terminal-green': '#4ade80',
         'electric-blue': '#3B82F6',
         border: '#1E1E1E',
       },
       dropShadow: {
-        green: '0 0 8px #00FF41',
+        green: '0 0 8px #4ade80',
         blue: '0 0 8px #3B82F6',
       },
       boxShadow: {
-        'green-glow': '0 0 16px rgba(0, 255, 65, 0.3)',
+        'green-glow': '0 0 16px rgba(74, 222, 128, 0.3)',
         'blue-glow': '0 0 16px rgba(59, 130, 246, 0.3)',
-        'card-hover': '0 0 0 1px #00FF41, 0 0 20px rgba(0, 255, 65, 0.15)',
+        'card-hover': '0 0 0 1px #4ade80, 0 0 20px rgba(74, 222, 128, 0.15)',
       },
     },
   },

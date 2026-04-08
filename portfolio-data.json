@@ -10,7 +10,7 @@
   "colors": {
     "background": "#050505",
     "card": "#121212",
-    "accent": "#00FF41",
+    "accent": "#4ade80",
     "secondary": "#3B82F6",
     "text": "#FFFFFF"
   },
@@ -51,6 +51,14 @@
       "description": "Model Context Protocol server exposing any PostgreSQL database as a conversational interface for Claude Desktop. Implements an NL-to-SQL pipeline with dual-model Anthropic API strategy, multi-layered read-only safety architecture, BFS-based foreign-key relationship traversal, and an index optimization advisor.",
       "featured": true,
       "github": "https://github.com/sgkul2000/db-explorer-mcp",
+      "visit": ""
+    },
+    {
+      "name": "cf_ai_dbagent",
+      "tech": "Cloudflare Workers + React 19 + MCP + Workers AI + PostgreSQL",
+      "description": "Production-ready, edge-deployed AI assistant for PostgreSQL — submitted to the Cloudflare 1111 Intern Program. Chat with your database in plain English via a React 19 WebSocket UI. Two cooperating Cloudflare Workers communicate over the Model Context Protocol: a chat agent running Llama 3.3 70B handles NL-to-SQL and schema exploration via tool-calling chains, while an MCP server executes queries through Cloudflare Hyperdrive. Features Vectorize-powered semantic schema search, Durable Object SQLite for session memory, and a human-in-the-loop approval gate for all write operations.",
+      "featured": true,
+      "github": "",
       "visit": ""
     },
     {
